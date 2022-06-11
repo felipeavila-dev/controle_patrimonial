@@ -28,4 +28,9 @@ export const Link = styled.div`
   font-size: 1.2rem;
   padding-top: 5px;
   border-top: 1px solid gray;
+
+  :hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;

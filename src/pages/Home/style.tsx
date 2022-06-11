@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { colors } from '../../colors';
 
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  max-width: 100vw;
+`;
 
 export const TitleArea = styled.div`
   display: flex;
@@ -32,3 +34,7 @@ export const CategoryCardsArea = styled.div`
   grid-gap: 10px;
   margin-top: 40px;
 `
+
+export const Loading = styled.h3`
+  font-size: 5rem;
+`;

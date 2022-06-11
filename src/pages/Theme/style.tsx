@@ -5,6 +5,7 @@ import { colors } from '../../colors';
 
 export const Container = styled.div`
   height: 100vh;
+  max-width: 100vw;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -52,4 +53,5 @@ export const MenuItem = styled.div`
 export const Content = styled.div`
   flex: 1;
   padding: 20px 40px;
-`;
+  overflow: auto;
+  `;
