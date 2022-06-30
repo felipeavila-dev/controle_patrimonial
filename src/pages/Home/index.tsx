@@ -5,43 +5,53 @@ import {CardItem} from '../../components/CardItem';
 import { GrBarChart } from "react-icons/gr";
 import { Context } from '../../contexts/Context';
 import { ChartItem } from '../../components/ChartItem';
-import { getProductByCategory } from '../../helpers/helpers';
+import { getProductQuantityByCategory } from '../../helpers/helpers';
+import { TitleArea } from '../../components/TitleArea';
+import { useNavigate } from 'react-router-dom';
 
 
 export const Home = () => {
-  const context = useContext(Context);
+  const {categories, setItemQuantity, itemQuantity, items} = useContext(Context);
   
   const [chartData, setChartData] = useState([]);
   const [loadingChart, setLoadingChart] = useState(false);
-  const [optionsChart, setOptionsChart] = useState({Title: 'Dashboard de equipamentos', width:'500px', height: 'auto'});
+  const [optionsChart] = useState({Title: 'Dashboard de equipamentos', width:'500px', height: 'auto'});
 
-  // Set the itemsQuantityKeys with all categories
+  const navigate = useNavigate();
+
+  const {setUserEmail} = useContext(Context);
+
+  // Set the itemsQuantityKeys with all categories and quantity
   useEffect(() => {
     const keys: any = [];
-    context.categories.map((category) => keys.push([category.title, getProductByCategory(category.title)]));
-    context.setItemQuantity(keys);
+    categories.map((category) => keys.push([category.title, getProductQuantityByCategory(items, category.title)]));
+    setItemQuantity(keys);
   }, []);
+
+  useEffect(() => {
+    const user = localStorage.getItem('user');
+    if(!user) { 
+      navigate('/login');
+    } else {
+      setUserEmail(JSON.parse(user));
+    }
+  })
+
 
   useEffect(() => {
     setLoadingChart(true);
     const newData: any = [['Equipamento', 'Quantidade']];
-    context.itemQuantity.forEach((index) => newData.push(index));
+    itemQuantity.forEach((index) => newData.push(index));
 
     setChartData(newData);
     setLoadingChart(false);
-  }, [context.itemQuantity])
+  }, [itemQuantity])
 
   return(
     <C.Container>
-      <C.TitleArea>
-        <C.TitleIcon><GrBarChart size="2.5rem"/></C.TitleIcon>
-        <C.Title>Página inicial</C.Title>
-      </C.TitleArea>
-      <C.SubtitleArea>
-        <C.Subtitle>Listagem resumida de todas as caregorias</C.Subtitle>
-      </C.SubtitleArea>
+      <TitleArea titleIcon={<GrBarChart size="2.5rem"/>} title='Página inicial' subtitle='Listagem resumida de todas as categorias'/>
       <C.CategoryCardsArea>
-        {context.categories.map((category) => (
+        {categories.map((category) => (
           <CardItem key={category.title} title={category.title} color={category.color} />
         ))}
       </C.CategoryCardsArea>

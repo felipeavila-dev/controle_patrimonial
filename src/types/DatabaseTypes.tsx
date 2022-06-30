@@ -3,7 +3,9 @@ export type ItemDatabaseType = {
   title: string;
   model: string;
   quantity: number;
+  department: string;
   category: string;
+  description: string;
 }
 
 export type CategoriesType = {

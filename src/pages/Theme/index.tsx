@@ -1,24 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import * as C from './style';
 import { ChildrenType } from '../../types/ChildrenType';
+import { Link } from "react-router-dom";
+import { Context } from "../../contexts/Context";
+const Logo = require('../../images/logo.png');
 
 export const Theme = ({children}: ChildrenType) => {
+
+  const {userEmail, setUserEmail} = useContext(Context);
+
+  const handleLogoff = () => {
+    setUserEmail('');
+    localStorage.clear();
+  }
+
   return(
     <C.Container>
       <C.Header>
-        <C.Logo>[LOGOTIPO DA EMPRESA]</C.Logo>
+        <C.Logo><img src={Logo} alt="logotipo" /></C.Logo>
         <C.InfoArea>
-          <C.UserName>Usuario anonimo</C.UserName>
+          <C.UserName><span>Usuário:</span>{ userEmail }</C.UserName>
           <C.UserPermission><b>Permissão:</b> Padrão</C.UserPermission>
         </C.InfoArea>
       </C.Header>
       <C.Body>
         <C.Navbar>
-          <C.MenuItem>Equipamentos</C.MenuItem>
-          <C.MenuItem>Manutenções</C.MenuItem>
-          <C.MenuItem>Garantias</C.MenuItem>
-          <C.MenuItem>Departamentos</C.MenuItem>
-          <C.MenuItem>Relatórios</C.MenuItem>
+          <C.MenuItem>
+            <Link to='/'>Dashboard</Link>
+          </C.MenuItem>
+          <C.MenuItem>
+            <Link to='/registerProduct'>Cadastrar Item</Link>
+          </C.MenuItem>
+          <C.MenuItem>
+            <Link to='/reports'>Relatórios</Link>
+          </C.MenuItem>
+          <C.MenuItem>
+            <a href="/login" onClick={handleLogoff}>
+              Sair
+            </a>
+          </C.MenuItem>
         </C.Navbar>
         <C.Content>
           {children}

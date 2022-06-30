@@ -16,7 +16,6 @@ export const GlobalStyle = createGlobalStyle`
   
   body {
     font-family: 'Montserrat', sans-serif;
-    overflow: hidden;
 
     h1 {
       font-size: 3rem;
@@ -25,6 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     h2 {
       font-size: 2rem;
     }
+
   }  
   
 `;

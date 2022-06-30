@@ -36,5 +36,7 @@ export const CategoryCardsArea = styled.div`
 `
 
 export const Loading = styled.h3`
-  font-size: 5rem;
+  font-size: 1.7rem;
+  text-align: center;
+  margin-top: 20px;
 `;
