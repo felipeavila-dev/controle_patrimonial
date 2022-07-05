@@ -5,7 +5,6 @@ import {createMemoryHistory} from 'history'
 import { MemoryRouter, Router } from 'react-router-dom';
 import { Login } from '../pages/Login';
 import App from '../App';
-import { createNumericLiteral } from 'typescript';
 
 describe('Realiza testes na página de login', () => {
   test('Se exite o input para email, senha e um botao com a palavra "entrar"', () => {
