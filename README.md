@@ -13,8 +13,8 @@ Este projeto tem como objetivo efetuar o controle de patrimonio(equipamentos) de
 - <b> Typescript </b>
 - <b> Context API </b> - Gerenciamento de estado global
 - <b> Styled Components </b>
-- <b> Toastify </b> - Exibir alertas ao cadastrar produto e efetuar login
-- <b> uuid </b> - Gerar IDs aleatórios
+- <b> Toastify </b> - Exibir alertas ao cadastrar produto e efetuar login - [Link da biblioteca](https://www.npmjs.com/package/react-toastify)
+- <b> uuid </b> - Gerar IDs aleatórios - [Link da biblioteca](https://www.npmjs.com/package/uuidv4)
 - <b> Google Sharts </b> - Criação de gráfico
 
 ![controle_patrimonio](https://user-images.githubusercontent.com/26674677/176742971-c65b13fb-74d3-4963-b0ca-ee345b5b4e69.gif)
