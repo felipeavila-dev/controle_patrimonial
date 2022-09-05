@@ -33,8 +33,8 @@ export const Login = () => {
         <img src={Logo} alt="Logotipo" />
       </C.LogoArea>
       <C.InputArea>
-        <C.Input type="email" name="email" className="form-control" placeholder="email@email.com" onChange={ handleInput } data-testid='teste'/>
-        <C.Input type="password" name="password" className="form-control" placeholder="Senha" onChange={ handleInput } />
+        <C.Input type="email" name="email" className="form-control" placeholder="email: usuario@usuario.com" onChange={ handleInput } data-testid='teste'/>
+        <C.Input type="password" name="password" className="form-control" placeholder="Senha: 123" onChange={ handleInput } />
         <C.Button className="btn btn-success" onClick={ handleLogin }>Entrar</C.Button>
       </C.InputArea>
     </C.Container>
